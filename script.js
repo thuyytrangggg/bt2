@@ -15,11 +15,6 @@ const calendarWeekDays = document.querySelector('.calendar-week-days');
 const scrollIndicator = document.getElementById('scroll-indicator');
 
 monthYearPicker.addEventListener('click', () => {
-    if (viewMode === 'month') {
-        viewMode = 'year';
-    } else if (viewMode === 'year') {
-        viewMode = 'decade';
-    }
     updateDisplay();
 });
 
