@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style_calendar.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="container-header">
+            <span class="calendar-date">Monday, November 7</span>
+            <button class="dropdown-button">></button>
+        </header>
+        <main class="body-main">
+            <div class="ctrl-bar">
+                <div class="month-year-picker" id="month-year-picker">
+                    <span class="month-picker" id="month-picker"> July </span>
+                    <span class="year-picker" id="year-picker">
+                        <span id="year">2025 </span>
+                    </span>
+                </div>
+                <div class="month-ctrl">
+                    <span class="month-change" id="pre-month">
+                        <pre>▴</pre>
+                    </span>
+                    <span class="month-change" id="next-month">
+                        <pre>▾</pre>
+                    </span>
+                </div>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-week-days">
+                    <div>Su</div>
+                    <div>Mo</div>
+                    <div>Tu</div>
+                    <div>We</div>
+                    <div>Th</div>
+                    <div>Fr</div>
+                    <div>Sa</div>
+                </div>
+                <div class="calendar-days"></div>
+                <div class="month-list"></div>
+            </div>
+        </main>
+        <footer class="container-footer">
+            <div class="timer-ctrl">
+                <button id="add-time">-</button>
+                <span id="countdown">30 mins</span>
+                <button id="add-time">+</button>
+            </div>
+            <button class="focus-btn">
+                <div class="play-focus">▶</div>
+                <div class="focus">Focus</div>
+            </button>
+        </footer>
+    </div>
+</body>
+</html>
