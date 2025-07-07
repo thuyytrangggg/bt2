@@ -102,21 +102,18 @@ function renderMonthView() {
 
         dayEl.textContent = dayNumber;
 
-        // Kiểm tra ngày hôm nay
         if (dayNumber === today.getDate() &&
             cellMonth === today.getMonth() &&
             cellYear === today.getFullYear()) {
             dayEl.classList.add('today');
         }
 
-        // Kiểm tra ngày được chọn
         if (dayNumber === selectedDate.getDate() &&
             cellMonth === selectedDate.getMonth() &&
             cellYear === selectedDate.getFullYear()) {
             dayEl.classList.add('selected');
         }
 
-        // Event listener cho tất cả các ngày
         dayEl.addEventListener('click', () => {
             selectedDate = new Date(cellYear, cellMonth, dayNumber);
 
@@ -222,7 +219,6 @@ function updateTimer() {
     countdownDisplay.textContent = `${focusMinutes} mins`;
 }
 
-// SMOOTH SCROLL NAVIGATION - GIỐNG WINDOWS
 function showScrollIndicator() {
     if (scrollIndicator) {
         scrollIndicator.classList.add('show');
@@ -238,7 +234,6 @@ function smoothMonthTransition(direction) {
 
     isScrolling = true;
 
-    // Thêm animation class
     if (direction === 'up') {
         calendarDays.classList.add('scroll-up');
     } else {
@@ -246,14 +241,12 @@ function smoothMonthTransition(direction) {
     }
 
     setTimeout(() => {
-        // Navigate to previous/next month
         if (direction === 'up') {
             navigatePrevious();
         } else {
             navigateNext();
         }
 
-        // Remove old animation class và thêm new animation
         calendarDays.classList.remove('scroll-up', 'scroll-down');
 
         if (direction === 'up') {
