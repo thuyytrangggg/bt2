@@ -380,6 +380,15 @@ dropdownButton.addEventListener('click', () => {
     updateDisplay();
 });
 
+
+const container = document.querySelector('.container');
+
+dropdownButton.addEventListener('click', () => {
+    container.classList.toggle('collapsed');
+});
+
+
+
 addTimeButtons[0].addEventListener('click', () => {
     if (!isTimerRunning && focusMinutes > 5) {
         focusMinutes -= 5;
@@ -395,6 +404,7 @@ addTimeButtons[1].addEventListener('click', () => {
 });
 
 focusBtn.addEventListener('click', startFocusTimer);
+
 
 document.addEventListener('wheel', (e) => {
     if (viewMode !== 'month') return;

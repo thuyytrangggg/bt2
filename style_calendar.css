@@ -12,10 +12,14 @@ body {
     display: flex;
     justify-content: center;
     padding: 50px;
-    height: 630px;
+    height: 638px;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
     width: auto;
     background-color: #2b2b2b;
     border-radius: 8px;
@@ -26,7 +30,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 17px 18px;
+    padding: 15px 18px;
     background-color: #1e1e1e;
     border-bottom: 1px solid #444;
 }
@@ -36,12 +40,40 @@ body {
 }
 
 .dropdown-button {
-    background: none;
+    background-color: #333;
     border: none;
     color: white;
     font-size: 16px;
     transform: rotate(90deg);
     cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+}
+
+.dropdown-button:hover {
+    background-color: #555;
+}
+
+.container.collapsed .ctrl-bar,
+.container.collapsed .calendar-body {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.container.collapsed {
+    height: 108px;
+}
+
+
+.container.collapsed .dropdown-button {
+  transform: rotate(270deg); 
 }
 
 .body-main {
@@ -63,20 +95,8 @@ body {
     cursor: pointer;
 }
 
-/* .month-year-picker {
-    display: flex;
-    gap: 4px;
-} */
 
-/* .month-picker, .year-picker {
-    display: inline-flex;
-    cursor: pointer;
-    padding: 0;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-} */
-
-.month-year-picker:hover{
+.month-year-picker:hover {
     background-color: #404040;
     width: 255px;
     height: 28px;
@@ -120,7 +140,7 @@ body {
     height: 380px;
     min-width: 360px;
     flex: 1;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .calendar-week-days {
@@ -147,36 +167,33 @@ body {
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr); 
+    grid-template-rows: repeat(6, 1fr);
     gap: 10px;
     height: 300px;
     min-width: 360px;
-    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .calendar-days div {
     display: flex;
-    align-items: center;     
+    align-items: center;
     justify-content: center;
     padding: 5px;
     cursor: pointer;
     border-radius: 50%;
-    transition: all 0.2s ease-in-out;
     min-height: 40px;
     font-size: 14px;
 }
 
 .calendar-days div:hover {
-    background-color: #000;
-    border-radius: 20%;
+    background-color: rgba(114, 113, 113, 0.273);
+    border-radius: 50%;
     color: #f8fbff;
-    transform: scale(1.1);
 }
 
 .calendar-days div.current-date {
     color: #f8fbff;
     background-color: #000;
-    border-radius: 20%;
+    border-radius: 50%;
 }
 
 .prev-month-day,
@@ -191,7 +208,7 @@ body {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.other-decade{
+.other-decade {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 
@@ -209,7 +226,6 @@ body {
 }
 
 .selected {
-    /* background-color: #0078d4 !important; */
     color: white !important;
     border-radius: 50% !important;
     border: 1px solid #00b7ff;
@@ -231,23 +247,51 @@ body {
 }
 
 @keyframes slideUpOut {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-20px); opacity: 0; }
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
 }
 
 @keyframes slideDownOut {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(20px); opacity: 0; }
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
 }
 
 @keyframes slideUpIn {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes slideDownIn {
-    0% { transform: translateY(-20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .calendar-days.slide-up-in {
@@ -338,7 +382,7 @@ body {
     align-items: center;
     background-color: #1e1e1e;
     padding: 8px 14px;
-    border-top: 1px solid #1e1e1e;
+    border-top: 1px solid #292828;
     color: white;
     font-family: sans-serif;
 }
